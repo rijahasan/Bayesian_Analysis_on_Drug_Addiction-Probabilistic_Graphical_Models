@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="finalbanglatrain" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Frequency_of_drugs">
+			<state id="Never_Not_applicable" />
+			<state id="Occasionally" />
+			<state id="Once_twice_a_week" />
+			<state id="Regularly" />
+			<probabilities>0.5443786982248521 0.2011834319526627 0.1420118343195266 0.1124260355029586</probabilities>
+		</cpt>
+		<cpt id="Conflict_with_law">
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Frequency_of_drugs</parents>
+			<probabilities>0.9347826086956521 0.06521739130434782 0.5882352941176471 0.4117647058823529 0.5416666666666666 0.4583333333333333 0.3684210526315789 0.631578947368421</probabilities>
+		</cpt>
+		<cpt id="Living_with_drug_user">
+			<state id="No" />
+			<state id="Not_sure" />
+			<state id="Yes" />
+			<parents>Frequency_of_drugs</parents>
+			<probabilities>0.7826086956521738 0.03260869565217391 0.1847826086956522 0.4705882352941176 0.08823529411764705 0.4411764705882353 0.3333333333333333 0.04166666666666666 0.625 0.1166666666666667 0.01666666666666667 0.8666666666666667</probabilities>
+		</cpt>
+		<cpt id="Addicted_person_in_family">
+			<state id="No" />
+			<state id="Not_sure" />
+			<state id="Yes" />
+			<parents>Living_with_drug_user</parents>
+			<probabilities>0.9387755102040816 0.01020408163265306 0.0510204081632653 0.04166666666666667 0.9166666666666669 0.04166666666666667 0.46875 0.125 0.40625</probabilities>
+		</cpt>
+		<cpt id="Case_in_court">
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Conflict_with_law Addicted_person_in_family</parents>
+			<probabilities>0.9948979591836734 0.00510204081632653 0.9545454545454546 0.04545454545454546 0.8421052631578947 0.1578947368421053 0.76 0.24 0.5 0.5 0.1666666666666667 0.8333333333333333</probabilities>
+		</cpt>
+		<cpt id="Enjoyable_amount_of_drugs">
+			<state id="I_have_no_idea" />
+			<state id="Multiple_drugs" />
+			<state id="One_drug" />
+			<parents>Case_in_court Frequency_of_drugs</parents>
+			<probabilities>0.9666666666666667 0.01111111111111111 0.02222222222222222 0.3448275862068966 0.2413793103448276 0.4137931034482759 0.1666666666666667 0.3888888888888888 0.4444444444444444 0.0303030303030303 0.6666666666666666 0.303030303030303 0.1111111111111111 0.1111111111111111 0.7777777777777778 0.05555555555555556 0.7222222222222222 0.2222222222222222 0.04761904761904762 0.4761904761904762 0.4761904761904762 0.03333333333333333 0.3333333333333334 0.6333333333333333</probabilities>
+		</cpt>
+		<cpt id="Age">
+			<state id="above_35" />
+			<state id="between_22_to_35_years" />
+			<state id="s15_to_22_years" />
+			<parents>Enjoyable_amount_of_drugs</parents>
+			<probabilities>0.02 0.59 0.39 0.375 0.40625 0.21875 0.1621621621621622 0.5675675675675675 0.2702702702702703</probabilities>
+		</cpt>
+		<cpt id="Ever_taken_drug">
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Enjoyable_amount_of_drugs Frequency_of_drugs</parents>
+			<probabilities>0.9540229885057471 0.04597701149425287 0.2 0.8 0.125 0.875 0.5 0.5 0.25 0.75 0.2727272727272727 0.7272727272727273 0.1 0.9 0.1 0.9 0.5 0.5 0.03571428571428571 0.9642857142857142 0.04166666666666666 0.9583333333333333 0.3333333333333333 0.6666666666666666</probabilities>
+		</cpt>
+		<cpt id="Smoking">
+			<state id="No_I_dont" />
+			<state id="Yes_every_day" />
+			<state id="Yes_occasionally" />
+			<parents>Ever_taken_drug Frequency_of_drugs</parents>
+			<probabilities>0.6235294117647059 0.1294117647058823 0.2470588235294118 0.2 0.6000000000000001 0.2 0.1666666666666667 0.1666666666666667 0.6666666666666666 0.06666666666666667 0.2666666666666667 0.6666666666666667 0.4166666666666668 0.5416666666666667 0.04166666666666667 0.103448275862069 0.5172413793103449 0.3793103448275862 0.04347826086956522 0.8260869565217391 0.1304347826086956 0.02083333333333333 0.9583333333333334 0.02083333333333333</probabilities>
+		</cpt>
+		<cpt id="Gender">
+			<state id="Female" />
+			<state id="Male" />
+			<parents>Case_in_court Smoking</parents>
+			<probabilities>0.55 0.45 0.01785714285714286 0.9821428571428571 0.2903225806451613 0.7096774193548387 0.75 0.25 0.3333333333333333 0.6666666666666666 0.7777777777777777 0.2222222222222222</probabilities>
+		</cpt>
+		<cpt id="Education">
+			<state id="HSC_A_levels" />
+			<state id="Postgraduate_MSc_PhD" />
+			<state id="Primary_Education" />
+			<state id="SSC_O_levels" />
+			<state id="Undergraduate" />
+			<parents>Age Addicted_person_in_family Case_in_court</parents>
+			<probabilities>0.65 0.15 0.025 0.025 0.15 0.06666666666666667 0.06666666666666667 0.4 0.4 0.06666666666666667 0.24 0.24 0.04000000000000001 0.04000000000000001 0.4400000000000001 0.1 0.1 0.1 0.6 0.1 0.06666666666666667 0.4 0.06666666666666667 0.06666666666666667 0.4 0.04000000000000001 0.04000000000000001 0.04000000000000001 0.04000000000000001 0.8400000000000001 0.03055555555555556 0.1972222222222222 0.002777777777777778 0.002777777777777778 0.7666666666666667 0.5499999999999999 0.04999999999999999 0.04999999999999999 0.2999999999999999 0.04999999999999999 0.03333333333333333 0.03333333333333333 0.03333333333333333 0.03333333333333333 0.8666666666666667 0.1 0.1 0.1 0.1 0.6 0.42 0.12 0.02 0.02 0.42 0.4399999999999999 0.03999999999999999 0.03999999999999999 0.03999999999999999 0.4399999999999999 0.3128205128205128 0.005128205128205128 0.005128205128205128 0.03076923076923077 0.6461538461538461 0.6000000000000001 0.1 0.1 0.1 0.1 0.04000000000000001 0.04000000000000001 0.04000000000000001 0.4400000000000001 0.4400000000000001 0.1 0.1 0.1 0.6 0.1 0.525 0.025 0.025 0.15 0.275 0.3666666666666666 0.03333333333333333 0.2 0.2 0.2</probabilities>
+		</cpt>
+		<cpt id="Live_with">
+			<state id="Hostel_Hall" />
+			<state id="With_Family_Relatives" />
+			<probabilities>0.378698224852071 0.6213017751479289</probabilities>
+		</cpt>
+		<cpt id="Family_relationship">
+			<state id="Average" />
+			<state id="Communcaiton_gap" />
+			<state id="Satisfactory" />
+			<parents>Education Ever_taken_drug</parents>
+			<probabilities>0.3787878787878788 0.01515151515151515 0.6060606060606061 0.7142857142857142 0.07142857142857142 0.2142857142857143 0.1111111111111111 0.02777777777777778 0.8611111111111112 0.4285714285714285 0.1428571428571428 0.4285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.4444444444444444 0.4444444444444444 0.1111111111111111 0.4444444444444444 0.1111111111111111 0.4444444444444444 0.1428571428571428 0.7142857142857142 0.1428571428571428 0.09836065573770492 0.04918032786885246 0.8524590163934427 0.6363636363636364 0.02272727272727273 0.3409090909090909</probabilities>
+		</cpt>
+		<cpt id="Spend_most_time_with">
+			<state id="Alone" />
+			<state id="Family_Relatives" />
+			<state id="Friends" />
+			<parents>Family_relationship</parents>
+			<probabilities>0.2203389830508475 0.06779661016949153 0.711864406779661 0.25 0.08333333333333333 0.6666666666666666 0.1020408163265306 0.3979591836734693 0.4999999999999999</probabilities>
+		</cpt>
+		<cpt id="Failure_in_life">
+			<state id="No" />
+			<state id="Yes" />
+			<probabilities>0.4792899408284024 0.5207100591715976</probabilities>
+		</cpt>
+		<cpt id="Mental_emotional_problem">
+			<state id="Anxiety" />
+			<state id="Both" />
+			<state id="Depression" />
+			<state id="Not_any" />
+			<state id="Others" />
+			<parents>Age Failure_in_life</parents>
+			<probabilities>0.5636363636363637 0.1090909090909091 0.1090909090909091 0.2 0.01818181818181818 0.4727272727272728 0.290909090909091 0.1090909090909091 0.01818181818181818 0.1090909090909091 0.4878048780487805 0.1463414634146342 0.1951219512195122 0.1463414634146342 0.02439024390243903 0.25 0.2307692307692308 0.4615384615384616 0.01923076923076923 0.03846153846153846 0.1666666666666667 0.2333333333333333 0.2 0.06666666666666667 0.3333333333333333 0.1185185185185185 0.08148148148148149 0.7851851851851851 0.007407407407407408 0.007407407407407408</probabilities>
+		</cpt>
+		<cpt id="Suicidal_thoughts">
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Case_in_court</parents>
+			<probabilities>0.7414965986394557 0.2585034013605442 0.3181818181818182 0.6818181818181819</probabilities>
+		</cpt>
+		<cpt id="Financials_of_family">
+			<state id="Lower_Class" />
+			<state id="Medium" />
+			<state id="Upper_Class" />
+			<parents>Spend_most_time_with</parents>
+			<probabilities>0.3846153846153846 0.5 0.1153846153846154 0.3181818181818182 0.25 0.4318181818181818 0.2525252525252525 0.6262626262626263 0.1212121212121212</probabilities>
+		</cpt>
+		<cpt id="num_of_friends">
+			<state id="Few_14" />
+			<state id="Many_more_than_5" />
+			<state id="Zero" />
+			<parents>Education</parents>
+			<probabilities>0.2857142857142857 0.6857142857142857 0.02857142857142857 0.4912280701754386 0.4912280701754386 0.01754385964912281 0.4444444444444444 0.1111111111111111 0.4444444444444444 0.4444444444444444 0.3333333333333333 0.2222222222222222 0.2571428571428572 0.7142857142857143 0.02857142857142857</probabilities>
+		</cpt>
+		<cpt id="Withdrawal_symptoms">
+			<state id="I_have_no_idea" />
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Conflict_with_law Smoking</parents>
+			<probabilities>0.9345238095238095 0.05952380952380952 0.005952380952380952 0.2888888888888889 0.2888888888888889 0.4222222222222222 0.6153846153846154 0.2692307692307693 0.1153846153846154 0.04761904761904762 0.761904761904762 0.1904761904761905 0.2173913043478261 0.1739130434782609 0.6086956521739131 0.02222222222222222 0.6888888888888889 0.2888888888888889</probabilities>
+		</cpt>
+		<cpt id="friends_houses_at_night">
+			<state id="No_I_dont" />
+			<state id="Sometimes" />
+			<state id="Yes_often_I_do" />
+			<parents>Ever_taken_drug</parents>
+			<probabilities>0.3684210526315789 0.5263157894736842 0.1052631578947368 0.1216216216216216 0.5270270270270271 0.3513513513513514</probabilities>
+		</cpt>
+		<cpt id="Would_try_drugs">
+			<state id="i_dont_know_confused" />
+			<state id="Ill_try" />
+			<state id="no_ill_not" />
+			<parents>Enjoyable_amount_of_drugs num_of_friends Smoking</parents>
+			<probabilities>0.253968253968254 0.01587301587301587 0.7301587301587301 0.1111111111111111 0.7777777777777777 0.1111111111111111 0.8148148148148148 0.1481481481481481 0.03703703703703703 0.2314814814814815 0.009259259259259259 0.7592592592592592 0.4444444444444444 0.1111111111111111 0.4444444444444444 0.2142857142857143 0.4285714285714285 0.3571428571428571 0.1666666666666667 0.6666666666666667 0.1666666666666667 0.6666666666666667 0.1666666666666667 0.1666666666666667 0.1666666666666667 0.1666666666666667 0.6666666666666666 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.5 0.25 0.25 0.1111111111111111 0.1111111111111111 0.7777777777777778 0.1666666666666667 0.1666666666666667 0.6666666666666666 0.02380952380952381 0.9523809523809523 0.02380952380952381 0.03333333333333333 0.3333333333333334 0.6333333333333333 0.1666666666666667 0.6666666666666667 0.1666666666666667 0.1111111111111111 0.7777777777777777 0.1111111111111111 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.4444444444444444 0.4444444444444444 0.1111111111111111 0.0303030303030303 0.8484848484848484 0.1212121212121212 0.3333333333333333 0.08333333333333333 0.5833333333333334 0.1666666666666667 0.1666666666666667 0.6666666666666666 0.05882352941176471 0.8823529411764706 0.05882352941176471 0.3333333333333333 0.5833333333333334 0.08333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.1666666666666667 0.6666666666666667 0.1666666666666667 0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+		</cpt>
+		<cpt id="Satisfied_with_workplace">
+			<state id="No" />
+			<state id="Yes" />
+			<parents>Would_try_drugs</parents>
+			<probabilities>0.5526315789473684 0.4473684210526315 0.5166666666666666 0.4833333333333333 0.1971830985915493 0.8028169014084507</probabilities>
+		</cpt>
+		<cpt id="Friends_influence">
+			<state id="No_they_dont" />
+			<state id="Yes_often_they_do" />
+			<parents>Ever_taken_drug</parents>
+			<probabilities>0.8631578947368421 0.1368421052631579 0.3378378378378378 0.6621621621621622</probabilities>
+		</cpt>
+		<cpt id="Control_use_of_drug">
+			<state id="No_Its_not_possible" />
+			<state id="Yes_Its_possible" />
+			<probabilities>0.242603550295858 0.757396449704142</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 5.0.4708.0 ACADEMIC" name="naivebayes">
+			<node id="Age">
+				<name>Age</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>600 204 672 252</position>
+			</node>
+			<node id="Gender">
+				<name>Gender</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>588 259 660 307</position>
+			</node>
+			<node id="Education">
+				<name>Education</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>553 310 625 358</position>
+			</node>
+			<node id="Enjoyable_amount_of_drugs">
+				<name>Enjoyable_amount_of_drugs</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>498 352 570 400</position>
+			</node>
+			<node id="Live_with">
+				<name>Live_with</name>
+				<interior color="ffffff" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>10 512 82 560</position>
+			</node>
+			<node id="Conflict_with_law">
+				<name>Conflict_with_law</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>437 458 509 506</position>
+			</node>
+			<node id="Spend_most_time_with">
+				<name>Spend_most_time_with</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>346 398 418 446</position>
+			</node>
+			<node id="Failure_in_life">
+				<name>Failure_in_life</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>264 398 336 446</position>
+			</node>
+			<node id="Mental_emotional_problem">
+				<name>Mental_emotional_problem</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>183 382 255 430</position>
+			</node>
+			<node id="Suicidal_thoughts">
+				<name>Suicidal_thoughts</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>112 352 184 400</position>
+			</node>
+			<node id="Family_relationship">
+				<name>Family_relationship</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>57 310 129 358</position>
+			</node>
+			<node id="Financials_of_family">
+				<name>Financials_of_family</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>22 259 94 307</position>
+			</node>
+			<node id="Addicted_person_in_family">
+				<name>Addicted_person_in_family</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>10 204 82 252</position>
+			</node>
+			<node id="num_of_friends">
+				<name>num_of_friends</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>22 149 94 197</position>
+			</node>
+			<node id="Withdrawal_symptoms">
+				<name>Withdrawal_symptoms</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>327 511 399 559</position>
+			</node>
+			<node id="friends_houses_at_night">
+				<name>friends_houses_at_night</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>112 56 184 104</position>
+			</node>
+			<node id="Satisfied_with_workplace">
+				<name>Satisfied_with_workplace</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>183 26 255 74</position>
+			</node>
+			<node id="Case_in_court">
+				<name>Case_in_court</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>264 10 336 58</position>
+			</node>
+			<node id="Living_with_drug_user">
+				<name>Living_with_drug_user</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>346 10 418 58</position>
+			</node>
+			<node id="Smoking">
+				<name>Smoking</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>514 563 586 611</position>
+			</node>
+			<node id="Ever_taken_drug">
+				<name>Ever_taken_drug</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>498 56 570 104</position>
+			</node>
+			<node id="Friends_influence">
+				<name>Friends_influence</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>553 98 625 146</position>
+			</node>
+			<node id="Would_try_drugs">
+				<name>Would_try_drugs</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>588 149 660 197</position>
+			</node>
+			<node id="Control_use_of_drug">
+				<name>Control_use_of_drug</name>
+				<interior color="ffffff" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>94 512 166 560</position>
+			</node>
+			<node id="Frequency_of_drugs">
+				<name>Frequency_of_drugs</name>
+				<interior color="ffff80" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>305 204 377 252</position>
+			</node>
+			<textbox>
+				<caption>Input file: finalbanglatrain\nData rows: 169\nElapsed time: 1.453s\n\nLearning algorithm: Augmented Naive Bayes\nAlgorithm parameters:\nClass variable: Frequency_of_drugs\nFeature selection: yes\nMax parent count: 4\nIterations: 100\nSample size: 50\nLink probability: 0.1\nPrior link probability: 0.005\nSeed: 42\nMax search time: 0\n\nBest score in iteration 47: -3445.32\nEM Log Likelihood: -2840.78</caption>
+				<font color="000000" name="Arial" size="8" />
+				<position>10 580 222 832</position>
+			</textbox>
+		</genie>
+	</extensions>
+</smile>
