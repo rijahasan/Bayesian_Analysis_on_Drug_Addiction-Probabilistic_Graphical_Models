@@ -1,0 +1,90 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+%Template version as of 6/27/2024
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Bayesian Modelling and Prediction of Drug Addiction in Pakistan\\
+% {\footnotesize \textsuperscript{*}Note: Sub-titles are not captured for https://ieeexplore.ieee.org  and
+% should not be used}
+% \thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+\author{\IEEEauthorblockN{Syeda Rija Hasan Abidi}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{Habib University}\\
+Karachi, Pakistan \\
+sa07424@st.habib.edu.pk}
+\and
+\IEEEauthorblockN{Muminah Khurram}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{Habib University}\\
+Karachi, Pakistan \\
+mk07521@st.habib.edu.pk}
+\and
+\IEEEauthorblockN{Raza Hashim Nizamani}
+\IEEEauthorblockA{\textit{Computer Science} \\
+\textit{Habib University}\\
+Karachi, Pakistan \\
+rn07380@st.habib.edu.pk}
+}
+
+\maketitle
+
+\begin{abstract}
+This project develops a Bayesian network model to predict susceptibility to drug addiction in Pakistan, focusing on demographical, psychological, and socio-economic factors such as age, gender, living conditions, mental health, stress, and education. By analyzing these variables with input from domain experts and various data sources, the model will assist stakeholders such as psychologists and counselors in identifying individuals at higher risk for addiction, facilitating early intervention, and informed support strategies in rehabilitation while also highlighting the addiction susceptibility of a wide range of individuals paving the way for policymakers to combat this rising problem on a large scale.\end{abstract}
+
+\begin{IEEEkeywords}
+Bayesian Network, Addiction, Pakistan, Machine Learning, Structure Learning.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Drug abuse and addiction have been identified as a major problem in Pakistan by the World Health Organization (WHO) \cite{emhj_drug_users_karachi} with 4.25 million drug users identified in 2023 and the number is only growing \cite{unodc_survey_drug_use_pakistan}. With societal neglect, lack of resources for rehabilitation facilities, and non-existent regulation by authorities, this problem is worsening by the year. Generally, the risk of addiction goes unheeded with few tools for practitioners at rehabs such as psychologists and counselors to deduce the susceptibility based on the symptoms and demographics of the patient. 
+
+In this project, we will model the susceptibility of individuals to develop drug dependence and addiction, given a multitude of factors such as age bracket, gender, living conditions, psychological health, stress levels, education, etc. in the context of Pakistan. We aim to create a Bayesian network with causes and effects pertaining to addiction defined with the help of datasets and domain experts. 
+
+\section{Literature Review}
+Using probabilistic reasoning through Bayesian networks to detect addiction patterns has many different forms in the literature. Gnanasekar et al. use a Bayesian network and image classification to create a causal model to predict drug addicts based on drug abuse marks on their faces and “soft” face biometrics. This amalgamation of neural networks with Bayesian networks yielded 84\% accuracy. The root node here is “Drug Abuser” and its effect attributes (directed arrow to) are the nodes of Blisters/Acne, Muscle loss, Hair loss, Poor Skin tone, and Gender. The study uses a diagnostic or bottom-up approach where they infer from the images whether the person is an addict or not \cite{gnanasekar_face_attributes_drug_addicts}. Our project takes a complementary approach to Gnanasekar et al.’s study; while their study uses symptoms of drug addiction to determine whether an individual is currently struggling with addiction, our focus is on predicting the likelihood of future addiction based on various sociodemographic and psychological factors.
+
+Another study targeting addiction using Bayesian Networks was on Internet Addiction Disorder (IAD) \cite{singh_internet_addiction_bayesian}. This study established causal links between Internet Addiction and what might be observed as symptoms, we aim to achieve something similar with our study. Doing so would make it easier for stakeholders to identify addiction using all its different manifestations and also identify its severity. Their model made erroneous predictions 5.7\% of the time, showcasing the potential of applying Bayesian Networks to a problem very similar to ours. The causal links also aid in establishing a sense of prioritization as to what the most relevant factors are and where the efforts should be focused. The study models 5 causal attributes while one effect attribute — the presence of IAD. Both predictive and diagnostic reasoning are shown with evidence of the causal and effect attributes. While the primary aim of our study is to predict the susceptibility of individuals to addiction, we can also perform diagnostic reasoning i.e. with the presence of addiction we may deduce the likelihood of their demographics, socio-economic situation, and so on.
+
+A major study that works on the same problem statement as this project is that of Abada et al. where they constructed a Naïve Bayes classification model to predict the likelihood of drug addiction. The parameters considered in the model were demographics, socioeconomic status, proximity to drugs, conflict with law, failure in life, and psychological attributes. This data consists of 26 total attributes and 205 instances. This study yields an accuracy score of 91\% indicated by the evaluation metrics of High Detection Rate, False Alarm, Accuracy, Precision, and F-measure \cite{abada_bayesian_model_drug_addiction}. While we will be working with the same attributes as Abada et al., we will not be considering the attributes to be independent as done in this Naïve Bayes model. However, the evaluation metrics to gauge the accuracy will remain the same.
+
+In the context of Pakistan, a cross-sectional survey is provided by Ghazal et al. that investigates the rising trend of drug addiction in Pakistan, focusing on the socio-demographic factors of patients admitted to rehabilitation centers in Islamabad and Rawalpindi. The study found that most addicts were young, skilled individuals, with a significant portion being educated, with heroin being the most abused drug, and peer pressure along with family disputes serving as key drivers of addiction. The study emphasizes the urgent need for preventive measures and highlights the co-morbid presence of depression in nearly half of the 102 participants as well as challenging the traditional notion that drug addiction primarily affects the uneducated and unemployed, showing that addiction is pervasive across various social strata \cite{ghazal_substance_abuse_pakistan}. This paper ends with a call for better rehabilitation facilities and policymaker intervention to address the alarming rise in substance abuse. Following in the footsteps of Ghazal et al. to address this pressing problem, the primary aim of our project is to present a technological and data-driven approach to better equip rehabilitation facilities, practitioners, and policymakers with significant insight into where preventative measures can be targeted by employing sensitivity analyses on our model.
+
+The creation of a Bayesian Network is the key deliverable of this project. This task becomes extremely tedious as the number of variables/nodes under consideration increases. In our project, we will be learning the structure of the Bayesian Network through structure learning to ensure consistency with data and expert advice to introduce context-specific nuances. The task of structure learning, however, is NP-Hard with the number of nodes/variables. Ever since the creation of Bayesian Networks by Judea Pearl in 1985 there have been many approximations and search heuristics techniques developed to combat this computational complexity and approximate the task in a reasonable amount of time. In 2023, Kitson et al. proposed 73 state-of-the-art algorithms and approaches for structure learning \cite{kitson2023survey}. All these approaches can be divided into three main categories: score-based structure learning, constraint-based structure learning, and hybrid models which combine the strengths of score-based and constraint-based structure learning to optimize results \cite{kitson2023survey}. 
+
+The score-based approach is the most common of structure learning approaches and can be more accurate than constraint-based learning depending on the efficacy of the score function used and the size of the data \cite{scanagatta2019survey}. This score function finds the best graph/network from the solution space of all possible graphs based on its fitness to the data. On the other hand, the constraint-based approach utilizes statistical tests to check conditional independencies among variables. These independencies determine the edges in the network. One notable example of this approach is the PC algorithm (named after its authors Peter and Clark) which starts with an undirected complete graph and recursively deletes edges based on independencies \cite{scanagatta2019survey}. The type of approach and algorithm for structure learning heavily depends on the quality, specifications, and size of the data and project requirements. The constraint-based approach is more suited for large datasets as the accuracy of the statistical tests is determined by the sample size while score-based approaches are computationally extremely expensive for large datasets and must be accompanied by heuristic approaches to deal with bigger datasets \cite{scanagatta2019survey}. As we expect to work with a dataset of moderate size, we may harness the power of hybrid models, however, it is subject to change as we are still finding more sources of data. 
+
+As highlighted in this literature review, the feasibility and potential of Bayesian Networks in modeling drug addiction is evident. Yet, relatively few studies have specifically targeted addiction susceptibility prediction—especially in the context of Pakistan. Existing research on drug addiction factors within Pakistan, such as the study by Ghazal et al. catalyzed more attention on the matter and emphasized the urgency of preventative measures for drug addiction, but it was itself qualitative and non-computational \cite{ghazal_substance_abuse_pakistan}. Given the rising trend of the problem of drug addiction in Pakistan, it is high time that this gap in research starts to be filled by technological and data-driven advancements. To this end, our study not only highlights the key factors involved in addiction and their impact but it will also aid stakeholders and practitioners in devising effective mitigating strategies and preemptive measures with the help of Bayesian network modeling. 
+
+\section{Methodology}
+\section{Results}
+\section{Analysis \& Discussion}
+\section{Future work}
+\section{References}
+
+
+
+% The preferred spelling of the word ``acknowledgment'' in America is without 
+% an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
+% G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
+% acknowledgments in the unnumbered footnote on the first page.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+% \vspace{12pt}
+% \color{red}
+% IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
+
+\end{document}
